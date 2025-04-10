@@ -155,15 +155,34 @@ export default function Home() {
         <section id="about" className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-100 mb-8">About Me</h2>
-            <div className="prose max-w-3xl">
-              <p className="text-gray-300 mb-4">
-                I am a passionate Machine Learning Engineer with expertise in deep learning,
-                computer vision, and natural language processing. My goal is to create
-                cool systems that solve real-world problems and improve people's lives.
-              </p>
-              <p className="text-gray-300">
-                I also love the outdoors, and I love rock climbing, hiking, backpacking, snowboarding, really anything that gets me outside! 
-              </p>
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="space-y-6">
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  I am a passionate Machine Learning Engineer with broad expertise in the AI space. My goal is to create
+                  cool systems that solve real-world problems and improve people's lives. 
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-gray-800 p-6 rounded-lg transition-transform duration-300 hover:scale-105">
+                  <h3 className="text-lg font-semibold text-gray-100 mb-2">Expertise</h3>
+                  <ul className="space-y-2 text-gray-300">
+                    <li>• Deep Learning</li>
+                    <li>• Computer Vision</li>
+                    <li>• NLP</li>
+                    <li>• Cloud Computing</li>
+                  </ul>
+                </div>
+                <div className="bg-gray-800 p-6 rounded-lg transition-transform duration-300 hover:scale-105">
+                  <h3 className="text-lg font-semibold text-gray-100 mb-2">Interests</h3>
+                  <ul className="space-y-2 text-gray-300">
+                    <li>• Rock Climbing</li>
+                    <li>• Hiking</li>
+                    <li>• Backpacking</li>
+                    <li>• Snowboarding</li>
+                    <li>• Video Games</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </section>
