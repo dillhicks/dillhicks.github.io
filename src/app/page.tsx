@@ -154,32 +154,85 @@ export default function Home() {
       <AnimatedSection>
         <section id="about" className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-100 mb-8">About Me</h2>
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="space-y-6">
-                <p className="text-gray-300 text-lg leading-relaxed">
-                  I am a passionate Machine Learning Engineer with broad expertise in the AI space. My goal is to create
-                  cool systems that solve real-world problems and improve people's lives. 
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
+            <h2 className="text-3xl font-bold text-gray-100 mb-12">About Me</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Left Column - Education and About Text */}
+              <div className="space-y-8">
                 <div className="bg-gray-800 p-6 rounded-lg transition-transform duration-300 hover:scale-105">
-                  <h3 className="text-lg font-semibold text-gray-100 mb-2">Expertise</h3>
-                  <ul className="space-y-2 text-gray-300">
-                    <li>• Deep Learning</li>
-                    <li>• Computer Vision</li>
-                    <li>• NLP</li>
-                    <li>• Cloud Computing</li>
+                  <h3 className="text-xl font-semibold text-blue-400 mb-4">Education</h3>
+                  <div className="space-y-6">
+                    <div>
+                      <p className="text-white font-medium">University of California, San Diego</p>
+                      <p className="text-emerald-300">M.S. in Machine Learning and Data Science</p>
+                      <p className="text-gray-400 text-sm">2021 - 2023</p>
+                    </div>
+                    <div>
+                      <p className="text-white font-medium">University of California, San Diego</p>
+                      <p className="text-emerald-300">B.S. in Electrical Engineering</p>
+                      <p className="text-gray-400 text-sm">2017 - 2021</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <p className="text-gray-200 text-lg leading-relaxed">
+                    I am a passionate Machine Learning Engineer with expertise in the AI space. I love engineering cool systems that solve real-world problems and improve people's lives!
+                  </p>
+                  
+                </div>
+              </div>
+
+              {/* Right Column - Expertise and Interests */}
+              <div className="space-y-8">
+                <div className="bg-gray-800 p-6 rounded-lg transition-transform duration-300 hover:scale-105">
+                  <h3 className="text-xl font-semibold text-blue-400 mb-4">Expertise</h3>
+                  <ul className="space-y-3 text-gray-200">
+                    <li className="flex items-center">
+                      <span className="text-emerald-400 mr-2">•</span>
+                      Deep Learning
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-emerald-400 mr-2">•</span>
+                      Computer Vision
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-emerald-400 mr-2">•</span>
+                      NLP
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-emerald-400 mr-2">•</span>
+                      Cloud Computing
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-emerald-400 mr-2">•</span>
+                      Geospatial Analysis
+                    </li>
                   </ul>
                 </div>
+
                 <div className="bg-gray-800 p-6 rounded-lg transition-transform duration-300 hover:scale-105">
-                  <h3 className="text-lg font-semibold text-gray-100 mb-2">Interests</h3>
-                  <ul className="space-y-2 text-gray-300">
-                    <li>• Rock Climbing</li>
-                    <li>• Hiking</li>
-                    <li>• Backpacking</li>
-                    <li>• Snowboarding</li>
-                    <li>• Video Games</li>
+                  <h3 className="text-xl font-semibold text-blue-400 mb-4">Interests</h3>
+                  <ul className="space-y-3 text-gray-200">
+                    <li className="flex items-center">
+                      <span className="text-emerald-400 mr-2">•</span>
+                      Rock Climbing
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-emerald-400 mr-2">•</span>
+                      Hiking
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-emerald-400 mr-2">•</span>
+                      Backpacking
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-emerald-400 mr-2">•</span>
+                      Snowboarding
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-emerald-400 mr-2">•</span>
+                      Gaming
+                    </li>
                   </ul>
                 </div>
               </div>
