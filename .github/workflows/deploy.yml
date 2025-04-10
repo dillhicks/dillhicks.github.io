@@ -29,8 +29,8 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Install dependencies
         run: |
-          npm ci
           npm install
+          npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
       - name: Build with Next.js
         run: npm run build
       - name: Create .nojekyll file
