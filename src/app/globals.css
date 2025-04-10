@@ -24,8 +24,6 @@
   --color-section-bg: var(--section-bg);
   --color-card-bg: var(--card-bg);
   --color-hover-bg: var(--hover-bg);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,7 +36,6 @@
 body {
   background: var(--background);
   color: var(--text-primary);
-  font-family: var(--font-sans);
 }
 
 @layer components {
