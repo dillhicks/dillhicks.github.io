@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next'
+import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
+import './globals.css'
+import { metadata as siteMetadata } from './metadata'
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Dillon Hicks - Machine Learning Engineer",
-  description: "Personal portfolio website showcasing projects, experience, and publications.",
-};
+export const metadata: Metadata = siteMetadata
 
 export default function RootLayout({
   children,
@@ -15,12 +12,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-gray-900`}>
-        <div className="min-h-screen">
-          {children}
-        </div>
-      </body>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body>{children}</body>
     </html>
-  );
+  )
 }
