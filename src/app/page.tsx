@@ -21,7 +21,7 @@ export default function Home() {
       description: 'An AI-powered resume editor and cover letter generator using Retrieval-Augmented Generation (RAG), Gemini, and GCP.',
       imageUrl: '/resuminer.jpg',
       technologies: ['RAG', 'Gemini', 'GCP'],
-      githubUrl: 'https://github.com/yourusername/resuminer',
+      githubUrl: 'https://github.com/dillhicks/resuminer',
     },
   ]
 
