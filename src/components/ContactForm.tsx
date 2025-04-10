@@ -8,7 +8,7 @@ export default function ContactLinks() {
       <div className="space-y-4">
         <a
           href="mailto:hicksdillon56@gmail.com"
-          className="flex items-center space-x-2 text-gray-300 hover:text-gray-100 transition-colors"
+          className="flex items-center space-x-2 text-gray-300 hover:text-gray-100 transition-all duration-300 transform hover:scale-105 animate-fade-in-up [animation-delay:0.5s]"
         >
           <svg
             className="w-6 h-6"
@@ -30,7 +30,7 @@ export default function ContactLinks() {
           href="https://www.linkedin.com/in/sdillonhicks/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center space-x-2 text-gray-300 hover:text-gray-100 transition-colors"
+          className="flex items-center space-x-2 text-gray-300 hover:text-gray-100 transition-all duration-300 transform hover:scale-105 animate-fade-in-up [animation-delay:0.7s]"
         >
           <svg
             className="w-6 h-6"
