@@ -70,4 +70,13 @@ body {
   .tech-tag {
     @apply px-3 py-1 text-sm rounded-full bg-gray-900 text-gray-300 border border-gray-800;
   }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
 }

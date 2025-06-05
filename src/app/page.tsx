@@ -5,6 +5,8 @@ import ExperienceItem from '@/components/ExperienceItem'
 import PublicationCard from '@/components/PublicationCard'
 import ContactLinks from '@/components/ContactForm'
 import AnimatedSection from '@/components/AnimatedSection'
+import PublicationsSection from '@/components/PublicationsSection'
+import ExperienceSection from '@/components/ExperienceSection'
 
 export default function Home() {
   const projects = [
@@ -124,30 +126,12 @@ export default function Home() {
 
       {/* Experience Section */}
       <AnimatedSection>
-        <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-100 mb-12">Experience</h2>
-            <div className="relative">
-              {experiences.map((experience, index) => (
-                <ExperienceItem key={index} {...experience} />
-              ))}
-            </div>
-          </div>
-        </section>
+        <ExperienceSection experiences={experiences} />
       </AnimatedSection>
 
       {/* Publications Section */}
       <AnimatedSection>
-        <section id="publications" className="py-16 px-4 sm:px-6 lg:px-8 section-bg">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-100 mb-8">Publications & Papers</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {publications.map((publication, index) => (
-                <PublicationCard key={index} {...publication} />
-              ))}
-            </div>
-          </div>
-        </section>
+        <PublicationsSection publications={publications} />
       </AnimatedSection>
 
       {/* About Section */}
@@ -160,11 +144,11 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {/* Left Column - Education */}
               <div className="bg-gray-800 p-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gray-900/50">
-                <h3 className="text-xl font-semibold text-blue-400 mb-6 transition-colors duration-300 hover:text-blue-300">Education</h3>
+                <h3 className="text-xl font-semibold text-gray-50 mb-6 transition-colors duration-300 hover:text-gray-100">Education</h3>
                 <div className="space-y-8">
                   <div>
-                    <p className="text-white font-medium">University of California, San Diego</p>
-                    <p className="text-emerald-300">M.S. in Machine Learning and Data Science</p>
+                    <p className="text-gray-50 font-medium">University of California, San Diego</p>
+                    <p className="text-gray-200">M.S. in Machine Learning and Data Science</p>
                     <p className="text-gray-400 text-sm mb-3">2021 - 2023</p>
                     <div className="pl-4 border-l-2 border-gray-700 space-y-2">
                       <p className="text-gray-300 text-sm">
@@ -173,8 +157,8 @@ export default function Home() {
                     </div>
                   </div>
                   <div>
-                    <p className="text-white font-medium">University of California, San Diego</p>
-                    <p className="text-emerald-300">B.S. in Electrical Engineering</p>
+                    <p className="text-gray-50 font-medium">University of California, San Diego</p>
+                    <p className="text-gray-200">B.S. in Electrical Engineering</p>
                     <p className="text-gray-400 text-sm mb-3">2017 - 2021</p>
                     <div className="pl-4 border-l-2 border-gray-700 space-y-2">
                       <p className="text-gray-300 text-sm">
@@ -205,56 +189,56 @@ export default function Home() {
               {/* Right Column - Expertise and Interests */}
               <div className="space-y-8">
                 <div className="bg-gray-800 p-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gray-900/50">
-                  <h3 className="text-xl font-semibold text-blue-400 mb-4 transition-colors duration-300 hover:text-blue-300">Expertise</h3>
+                  <h3 className="text-xl font-semibold text-gray-50 mb-4 transition-colors duration-300 hover:text-gray-100">Expertise</h3>
                   <ul className="space-y-3 text-gray-200">
                     <li className="flex items-center transition-all duration-300 transform hover:translate-x-2">
-                      <span className="text-emerald-400 mr-2">•</span>
+                      <span className="text-gray-400 mr-2">•</span>
                       Deep Learning
                     </li>
                     <li className="flex items-center transition-all duration-300 transform hover:translate-x-2">
-                      <span className="text-emerald-400 mr-2">•</span>
+                      <span className="text-gray-400 mr-2">•</span>
                       Computer Vision
                     </li>
                     <li className="flex items-center transition-all duration-300 transform hover:translate-x-2">
-                      <span className="text-emerald-400 mr-2">•</span>
+                      <span className="text-gray-400 mr-2">•</span>
                       NLP
                     </li>
                     <li className="flex items-center transition-all duration-300 transform hover:translate-x-2">
-                      <span className="text-emerald-400 mr-2">•</span>
+                      <span className="text-gray-400 mr-2">•</span>
                       Cloud Computing
                     </li>
                     <li className="flex items-center transition-all duration-300 transform hover:translate-x-2">
-                      <span className="text-emerald-400 mr-2">•</span>
+                      <span className="text-gray-400 mr-2">•</span>
                       Geospatial Analysis
                     </li>
                   </ul>
                 </div>
 
                 <div className="bg-gray-800 p-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gray-900/50">
-                  <h3 className="text-xl font-semibold text-blue-400 mb-4 transition-colors duration-300 hover:text-blue-300">Personal Interests</h3>
+                  <h3 className="text-xl font-semibold text-gray-50 mb-4 transition-colors duration-300 hover:text-gray-100">Personal Interests</h3>
                   <ul className="space-y-3 text-gray-200">
                     <li className="flex items-center transition-all duration-300 transform hover:translate-x-2">
-                      <span className="text-emerald-400 mr-2">•</span>
+                      <span className="text-gray-400 mr-2">•</span>
                       Rock Climbing
                     </li>
                     <li className="flex items-center transition-all duration-300 transform hover:translate-x-2">
-                      <span className="text-emerald-400 mr-2">•</span>
+                      <span className="text-gray-400 mr-2">•</span>
                       Hiking
                     </li>
                     <li className="flex items-center transition-all duration-300 transform hover:translate-x-2">
-                      <span className="text-emerald-400 mr-2">•</span>
+                      <span className="text-gray-400 mr-2">•</span>
                       Backpacking
                     </li>
                     <li className="flex items-center transition-all duration-300 transform hover:translate-x-2">
-                      <span className="text-emerald-400 mr-2">•</span>
+                      <span className="text-gray-400 mr-2">•</span>
                       Snowboarding
                     </li>
                     <li className="flex items-center transition-all duration-300 transform hover:translate-x-2">
-                      <span className="text-emerald-400 mr-2">•</span>
+                      <span className="text-gray-400 mr-2">•</span>
                       Gaming
                     </li>
                     <li className="flex items-center transition-all duration-300 transform hover:translate-x-2">
-                      <span className="text-emerald-400 mr-2">•</span>
+                      <span className="text-gray-400 mr-2">•</span>
                       Photography
                     </li>
                   </ul>
@@ -267,7 +251,6 @@ export default function Home() {
               <p className="text-gray-200 text-lg leading-relaxed">
                 I am a passionate Machine Learning Engineer with expertise in the AI space. I love engineering cool systems that solve real-world problems and improve people's lives!
               </p>
-              
             </div>
           </div>
         </section>

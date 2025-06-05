@@ -3,15 +3,15 @@
 import { useState } from 'react'
 
 export default function ContactLinks() {
+  const [showEmail, setShowEmail] = useState(false)
+  const email = 'hicksdillon56@gmail.com'
+
   return (
     <div className="space-y-6">
       <div className="space-y-4">
-        <a
-          href="mailto:hicksdillon56@gmail.com"
-          className="flex items-center space-x-2 text-gray-300 hover:text-gray-100 transition-all duration-300 transform hover:scale-105 animate-fade-in-up [animation-delay:0.5s]"
-        >
+        <div className="flex items-center space-x-2">
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 text-gray-300"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -24,8 +24,22 @@ export default function ContactLinks() {
               d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             />
           </svg>
-          <span>hicksdillon56@gmail.com</span>
-        </a>
+          {showEmail ? (
+            <a
+              href={`mailto:${email}`}
+              className="text-gray-300 hover:text-gray-100 transition-all duration-300"
+            >
+              {email}
+            </a>
+          ) : (
+            <button
+              onClick={() => setShowEmail(true)}
+              className="px-4 py-2 bg-gray-800 text-gray-200 rounded-lg border border-gray-700 hover:bg-gray-700 hover:text-gray-100 hover:border-gray-600 transition-all duration-300 transform hover:scale-105"
+            >
+              Click to show email
+            </button>
+          )}
+        </div>
         <a
           href="https://www.linkedin.com/in/sdillonhicks/"
           target="_blank"
