@@ -15,7 +15,7 @@ async function getPhotos(): Promise<Photo[]> {
   const files = fs.readdirSync(photosDirectory);
   
   return files
-    .filter(file => /\.(jpg|jpeg|png|gif|webp)$/i.test(file))
+    .filter(file => file.endsWith('.webp') && !file.includes('-preview'))
     .map(file => ({
       src: `/photos/${file}`,
       alt: file.split('.')[0].replace(/-/g, ' ').replace(/_/g, ' ')

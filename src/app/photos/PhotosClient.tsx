@@ -34,7 +34,7 @@ export default function PhotosClient({ photos }: { photos: Photo[] }) {
               onClick={() => setSelectedPhoto(photo.src)}
             >
               <Image
-                src={photo.src}
+                src={photo.src.replace('.webp', '-preview.webp')}
                 alt={photo.alt}
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
