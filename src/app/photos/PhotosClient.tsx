@@ -11,6 +11,60 @@ interface Photo {
 
 export default function PhotosClient({ photos }: { photos: Photo[] }) {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (!selectedPhoto) return;
+    
+    if (e.key === 'ArrowLeft') {
+      handlePrevious();
+    } else if (e.key === 'ArrowRight') {
+      handleNext();
+    } else if (e.key === 'Escape') {
+      setSelectedPhoto(null);
+    }
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = (prevIndex + 1) % photos.length;
+      setSelectedPhoto(photos[nextIndex].src);
+      return nextIndex;
+    });
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => {
+      const prevIndex2 = (prevIndex - 1 + photos.length) % photos.length;
+      setSelectedPhoto(photos[prevIndex2].src);
+      return prevIndex2;
+    });
+  };
+
+  const getPreviewImages = () => {
+    const prev2Index = (currentIndex - 2 + photos.length) % photos.length;
+    const prevIndex = (currentIndex - 1 + photos.length) % photos.length;
+    const nextIndex = (currentIndex + 1) % photos.length;
+    const next2Index = (currentIndex + 2) % photos.length;
+    
+    return [
+      { index: prev2Index, photo: photos[prev2Index] },
+      { index: prevIndex, photo: photos[prevIndex] },
+      { index: currentIndex, photo: photos[currentIndex] },
+      { index: nextIndex, photo: photos[nextIndex] },
+      { index: next2Index, photo: photos[next2Index] }
+    ];
+  };
+
+  React.useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedPhoto]);
+
+  const openPhoto = (photo: Photo, index: number) => {
+    setCurrentIndex(index);
+    setSelectedPhoto(photo.src);
+  };
   
   return (
     <main className="min-h-screen bg-[#0a0a0a]">
@@ -31,7 +85,7 @@ export default function PhotosClient({ photos }: { photos: Photo[] }) {
             <div
               key={index}
               className="relative aspect-square cursor-pointer overflow-hidden"
-              onClick={() => setSelectedPhoto(photo.src)}
+              onClick={() => openPhoto(photo, index)}
             >
               <Image
                 src={photo.src.replace('.webp', '-preview.webp')}
@@ -50,20 +104,66 @@ export default function PhotosClient({ photos }: { photos: Photo[] }) {
             className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedPhoto(null)}
           >
-            <div className="relative max-w-4xl max-h-[90vh] w-full">
+            <div className="relative max-w-4xl w-full">
               <button
                 className="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300"
                 onClick={() => setSelectedPhoto(null)}
               >
                 Close
               </button>
-              <div className="relative aspect-[4/3] w-full">
+              <div className="relative aspect-[4/3] w-full mb-4">
                 <Image
                   src={selectedPhoto}
                   alt="Selected photo"
                   fill
                   className="object-contain"
                 />
+                {/* Navigation Buttons */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePrevious();
+                  }}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all duration-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNext();
+                  }}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all duration-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+              
+              {/* Preview Carousel */}
+              <div className="flex justify-center gap-4 mt-4">
+                {getPreviewImages().map(({ index, photo }) => (
+                  <div
+                    key={index}
+                    className={`relative w-24 h-24 cursor-pointer rounded-lg overflow-hidden transition-all duration-300 ${
+                      index === currentIndex ? 'ring-2 ring-white scale-110' : 'opacity-50 hover:opacity-75'
+                    }`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openPhoto(photo, index);
+                    }}
+                  >
+                    <Image
+                      src={photo.src.replace('.webp', '-preview.webp')}
+                      alt={photo.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
