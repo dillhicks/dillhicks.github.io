@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, TouchEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,6 +12,9 @@ interface Photo {
 export default function PhotosClient({ photos }: { photos: Photo[] }) {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (!selectedPhoto) return;
@@ -26,6 +29,7 @@ export default function PhotosClient({ photos }: { photos: Photo[] }) {
   };
 
   const handleNext = () => {
+    setIsLoading(true);
     setCurrentIndex((prevIndex) => {
       const nextIndex = (prevIndex + 1) % photos.length;
       setSelectedPhoto(photos[nextIndex].src);
@@ -34,11 +38,41 @@ export default function PhotosClient({ photos }: { photos: Photo[] }) {
   };
 
   const handlePrevious = () => {
+    setIsLoading(true);
     setCurrentIndex((prevIndex) => {
       const prevIndex2 = (prevIndex - 1 + photos.length) % photos.length;
       setSelectedPhoto(photos[prevIndex2].src);
       return prevIndex2;
     });
+  };
+
+  const handleTouchStart = (e: TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+
+    const diff = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 50; // minimum distance for swipe
+
+    if (Math.abs(diff) > minSwipeDistance) {
+      if (diff > 0) {
+        // Swipe left, go to next
+        handleNext();
+      } else {
+        // Swipe right, go to previous
+        handlePrevious();
+      }
+    }
+
+    // Reset touch coordinates
+    touchStartX.current = null;
+    touchEndX.current = null;
   };
 
   const getPreviewImages = () => {
@@ -62,6 +96,7 @@ export default function PhotosClient({ photos }: { photos: Photo[] }) {
   }, [selectedPhoto]);
 
   const openPhoto = (photo: Photo, index: number) => {
+    setIsLoading(true);
     setCurrentIndex(index);
     setSelectedPhoto(photo.src);
   };
@@ -111,12 +146,24 @@ export default function PhotosClient({ photos }: { photos: Photo[] }) {
               >
                 Close
               </button>
-              <div className="relative aspect-[4/3] w-full mb-4">
+              <div 
+                className="relative aspect-[4/3] w-full mb-4"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
+                {isLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
+                    <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                  </div>
+                )}
                 <Image
                   src={selectedPhoto}
                   alt="Selected photo"
                   fill
                   className="object-contain"
+                  onLoadingComplete={() => setIsLoading(false)}
+                  priority
                 />
                 {/* Navigation Buttons */}
                 <button

@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { TypeAnimation } from 'react-type-animation'
+import Link from 'next/link'
 
 export default function Hero() {
   return (
@@ -60,6 +61,12 @@ export default function Hero() {
               >
                 View Resume
               </a>
+              <Link
+                href="/photos"
+                className="inline-flex items-center justify-center px-6 py-3 border border-gray-700 text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 transition-all duration-300 hover:scale-105 animate-fade-in-up [animation-delay:0.9s]"
+              >
+                Photo Gallery
+              </Link>
             </div>
           </div>
         </div>
