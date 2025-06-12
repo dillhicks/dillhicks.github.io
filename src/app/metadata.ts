@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Dillon Hicks',
-  description: 'Personal website of Dillon Hicks - Software Engineer and Researcher',
+  description: 'Personal website of Dillon Hicks - Machine Learning Engineer and Maker',
   icons: {
     icon: [
       { url: '/favicon.ico' },
