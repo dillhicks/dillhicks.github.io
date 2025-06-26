@@ -7,24 +7,51 @@ import ContactLinks from '@/components/ContactForm'
 import AnimatedSection from '@/components/AnimatedSection'
 import PublicationsSection from '@/components/PublicationsSection'
 import ExperienceSection from '@/components/ExperienceSection'
+import ProjectsSection, { Project, MediaItem } from '@/components/ProjectsSection'
 
 export default function Home() {
-  const projects = [
+  const projects: Project[] = [
     {
       title: 'DilDesigns3D',
       description: 'An Etsy shop specializing in retro handheld gaming accessories. Designed and 3D printed custom accessories for classic gaming consoles, open sourcing designs on Printables for the community.',
-      imageUrl: '/dildesigns.jpg',
+      shortDescription: '3D printed retro gaming accessories company.',
+      cardImage: '/cropped_dildesigns.jpg',
+      media: [
+        { type: 'image', url: '/dildesigns_etsy.png' },
+        { type: 'image', url: '/dildesigns_8bitdo.webp' },
+        { type: 'image', url: '/dildesigns_brick.webp' },
+        { type: 'image', url: '/dildesigns_retroid.webp' },
+      ],
       technologies: ['CAD Design', '3D Printing'],
       githubUrl: 'https://www.printables.com/@dildesigns',
       demoUrl: 'https://www.etsy.com/shop/DilDesigns3D',
     },
     {
+      title: 'GearLab chat',
+      description: 'A full-stack RAG Chatbot for product reccomendations. Includes chat moderation, multiple LLM integrations (Llama, Gemini), Chromadb, and local transformer-based scraping with a Vite React frontend with a FastAPI backend.',
+      shortDescription: 'Full-stack AI Chatbot for product recommendations.',
+      cardImage: '/gearlabchat.png',
+      media: [
+        { type: 'image', url: '/gearlabchat1.png' },
+        { type: 'image', url: '/gearlabchat2.png' },
+        { type: 'video', url: 'https://www.youtube.com/embed/L3foCTn1b-U' },
+      ],
+      technologies: ['LangChain', 'LLMs', 'RAG', 'Web Scraping', 'ChromaDB', 'FastAPI', 'Vite', 'Typescript', 'Python'],
+    },
+    {
       title: 'Resuminer',
       description: 'An AI-powered resume editor and cover letter generator using Retrieval-Augmented Generation (RAG), Gemini, and GCP.',
-      imageUrl: '/resuminer.jpg',
-      technologies: ['RAG', 'Gemini', 'GCP'],
+      shortDescription: 'LLM-powered resume and cover letter generator.',
+      cardImage: '/resuminer_logo.png',
+      media: [
+        { type: 'image', url: '/resuminer_front.jpg' },
+        { type: 'image', url: '/resuminer_bullets.jpg' },
+        { type: 'image', url: '/resuminer_cover.jpg' },
+      ],
+      technologies: ['RAG', 'Gemini', 'GCP', 'Streamlit', 'Python'],
       githubUrl: 'https://github.com/dillhicks/resuminer',
     },
+
   ]
 
   const experiences = [
@@ -112,16 +139,7 @@ export default function Home() {
       
       {/* Projects Section */}
       <AnimatedSection>
-        <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 section-bg">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-100 mb-8">What I'm Building</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {projects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
-              ))}
-            </div>
-          </div>
-        </section>
+        <ProjectsSection projects={projects} />
       </AnimatedSection>
 
       {/* Experience Section */}

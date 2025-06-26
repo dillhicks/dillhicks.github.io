@@ -140,18 +140,21 @@ export default function PhotosClient({ photos }: { photos: Photo[] }) {
             onClick={() => setSelectedPhoto(null)}
           >
             <div className="relative max-w-4xl w-full">
-              <button
-                className="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300"
-                onClick={() => setSelectedPhoto(null)}
-              >
-                Close
-              </button>
               <div 
                 className="relative aspect-[4/3] w-full mb-4"
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
               >
+                <button
+                  className="absolute top-0 right-0 text-white text-2xl hover:text-gray-300 z-50 p-2"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedPhoto(null);
+                  }}
+                >
+                  Close
+                </button>
                 {isLoading && (
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
                     <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
