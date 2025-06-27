@@ -1,9 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import ProjectCard from '@/components/ProjectCard'
-import ExperienceItem from '@/components/ExperienceItem'
-import PublicationCard from '@/components/PublicationCard'
-import ContactLinks from '@/components/ContactForm'
+import ContactForm from '@/components/ContactForm'
 import AnimatedSection from '@/components/AnimatedSection'
 import PublicationsSection from '@/components/PublicationsSection'
 import ExperienceSection from '@/components/ExperienceSection'
@@ -285,7 +282,7 @@ export default function Home() {
               </p>
             </div>
             <div className="max-w-xl">
-              <ContactLinks />
+              <ContactForm />
             </div>
           </div>
         </section>
