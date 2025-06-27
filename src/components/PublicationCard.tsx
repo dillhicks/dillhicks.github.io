@@ -1,5 +1,16 @@
 import Image from 'next/image'
 
+/**
+ * Props for the PublicationCard component.
+ * @property {string} title - The title of the publication.
+ * @property {string} authors - The authors of the publication.
+ * @property {string} venue - The venue where the publication was presented or published.
+ * @property {string} year - The year of publication.
+ * @property {'conference' | 'thesis'} type - The type of publication (conference or thesis).
+ * @property {string} role - The role of the author in the publication (e.g., 'Primary Author', 'Coauthor').
+ * @property {string} imageUrl - The URL of the image associated with the publication.
+ * @property {string} [paperUrl] - Optional URL to the full paper.
+ */
 interface PublicationCardProps {
   title: string
   authors: string
@@ -11,6 +22,13 @@ interface PublicationCardProps {
   paperUrl?: string
 }
 
+/**
+ * Renders a card for a publication or paper.
+ * Displays the title, authors, venue, year, type, role, and an image.
+ * Provides a link to read the full paper if available.
+ * @param {PublicationCardProps} props - The component props.
+ * @returns {JSX.Element} The PublicationCard component.
+ */
 export default function PublicationCard({
   title,
   authors,

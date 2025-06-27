@@ -1,3 +1,8 @@
+/**
+ * Renders a loading skeleton for the photos page.
+ * This component displays animated placeholders while the actual content is being loaded.
+ * @returns {JSX.Element} The loading skeleton component.
+ */
 export default function Loading() {
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">

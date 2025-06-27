@@ -3,6 +3,15 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
+/**
+ * Interface for an Experience object.
+ * @property {string} company - The name of the company.
+ * @property {string} position - The position held at the company.
+ * @property {string} period - The duration of the experience (e.g., "2023 - 2025").
+ * @property {string} summary - A brief summary of the experience.
+ * @property {string[]} technologies - An array of technologies used in this experience.
+ * @property {string} logoUrl - The URL of the company's logo.
+ */
 interface Experience {
   company: string
   position: string
@@ -12,10 +21,20 @@ interface Experience {
   logoUrl: string
 }
 
+/**
+ * Props for the ExperienceSection component.
+ * @property {Experience[]} experiences - An array of Experience objects to display.
+ */
 interface ExperienceSectionProps {
   experiences: Experience[]
 }
 
+/**
+ * Renders a section displaying a list of professional experiences.
+ * It includes a horizontally scrollable list of experience cards with navigation buttons.
+ * @param {ExperienceSectionProps} props - The component props.
+ * @returns {JSX.Element} The ExperienceSection component.
+ */
 export default function ExperienceSection({ experiences }: ExperienceSectionProps) {
   const [showLeftButton, setShowLeftButton] = useState(false)
   const [showRightButton, setShowRightButton] = useState(true)

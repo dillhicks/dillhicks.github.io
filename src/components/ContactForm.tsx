@@ -2,7 +2,11 @@
 
 import { useState } from 'react'
 
-export default function ContactLinks() {
+/**
+ * Renders the contact links section, including an email display toggle and a LinkedIn link.
+ * @returns {JSX.Element} The ContactForm component.
+ */
+export default function ContactForm() {
   const [showEmail, setShowEmail] = useState(false)
   const email = 'hicksdillon56@gmail.com'
 

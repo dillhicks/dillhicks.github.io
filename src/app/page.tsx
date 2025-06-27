@@ -6,6 +6,12 @@ import PublicationsSection from '@/components/PublicationsSection'
 import ExperienceSection from '@/components/ExperienceSection'
 import ProjectsSection, { Project, MediaItem } from '@/components/ProjectsSection'
 
+/**
+ * Renders the main home page of the portfolio website.
+ * This component aggregates various sections like Navbar, Hero, Projects, Experience, Publications, About, and Contact.
+ * It also defines the data for projects, experiences, and publications.
+ * @returns A React element representing the home page.
+ */
 export default function Home() {
   const projects: Project[] = [
     {

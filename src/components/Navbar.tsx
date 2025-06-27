@@ -3,9 +3,20 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+/**
+ * Renders the main navigation bar of the website.
+ * It provides links to different sections of the home page and a separate link to the photo gallery.
+ * Smooth scrolling is implemented for internal links.
+ * @returns {JSX.Element} The Navbar component.
+ */
 export default function Navbar() {
   const pathname = usePathname()
 
+  /**
+   * Handles smooth scrolling to a target section on the page.
+   * @param {React.MouseEvent<HTMLAnchorElement>} e - The click event.
+   * @param {string} targetId - The ID of the target HTML element to scroll to.
+   */
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     const element = document.getElementById(targetId);

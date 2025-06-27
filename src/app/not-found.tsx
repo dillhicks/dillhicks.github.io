@@ -1,3 +1,8 @@
+/**
+ * Renders a 404 Not Found page.
+ * This component provides a user-friendly message and a link to return to the home page.
+ * @returns {JSX.Element} The 404 Not Found page component.
+ */
 export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">

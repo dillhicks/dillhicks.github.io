@@ -9,6 +9,13 @@ interface Photo {
   alt: string;
 }
 
+/**
+ * PhotosClient component for displaying a photo gallery with a modal viewer.
+ * It handles image selection, navigation, and touch-based swiping.
+ * @param {Object} props - The component props.
+ * @param {Photo[]} props.photos - An array of photo objects to display.
+ * @returns {JSX.Element} The PhotosClient component.
+ */
 export default function PhotosClient({ photos }: { photos: Photo[] }) {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);

@@ -4,11 +4,27 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 
+/**
+ * Interface for a MediaItem within a project.
+ * @property {'image' | 'video'} type - The type of media (image or video).
+ * @property {string} url - The URL of the media.
+ */
 interface MediaItem {
   type: 'image' | 'video'
   url: string
 }
 
+/**
+ * Props for the ProjectCard component.
+ * @property {string} title - The title of the project.
+ * @property {string} description - A detailed description of the project.
+ * @property {string} shortDescription - A brief, one-line description of the project.
+ * @property {string[]} technologies - An array of technologies used in the project.
+ * @property {string} cardImage - The URL of the image to display on the project card.
+ * @property {MediaItem[]} media - An array of media items (images/videos) for the project details.
+ * @property {string} [githubUrl] - Optional URL to the project's GitHub repository or similar platform.
+ * @property {string} [demoUrl] - Optional URL to a live demo or external project page.
+ */
 interface ProjectCardProps {
   title: string
   description: string
@@ -20,6 +36,12 @@ interface ProjectCardProps {
   demoUrl?: string
 }
 
+/**
+ * Renders a card for a project, displaying its title, short description, and an image.
+ * Clicking the card opens a modal with more detailed information, including a media carousel.
+ * @param {ProjectCardProps} props - The component props.
+ * @returns {JSX.Element} The ProjectCard component.
+ */
 export default function ProjectCard({
   title,
   description,

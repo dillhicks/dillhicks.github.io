@@ -1,5 +1,10 @@
 import { Metadata } from 'next'
 
+/**
+ * Metadata for the Next.js application.
+ * This object defines the title, description, and various favicons/icons for the website.
+ * @type {Metadata}
+ */
 export const metadata: Metadata = {
   title: 'Dillon Hicks',
   description: 'Personal website of Dillon Hicks - Machine Learning Engineer and Maker',

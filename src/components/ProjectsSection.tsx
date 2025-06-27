@@ -2,6 +2,17 @@
 
 import ProjectCard from './ProjectCard'
 
+/**
+ * Interface for a Project object.
+ * @property {string} title - The title of the project.
+ * @property {string} description - A detailed description of the project.
+ * @property {string} shortDescription - A brief, one-line description of the project.
+ * @property {string[]} technologies - An array of technologies used in the project.
+ * @property {string} cardImage - The URL of the image to display on the project card.
+ * @property {MediaItem[]} media - An array of media items (images/videos) for the project details.
+ * @property {string} [githubUrl] - Optional URL to the project's GitHub repository or similar platform.
+ * @property {string} [demoUrl] - Optional URL to a live demo or external project page.
+ */
 export interface Project {
   title: string
   description: string
@@ -13,15 +24,29 @@ export interface Project {
   demoUrl?: string
 }
 
+/**
+ * Interface for a MediaItem within a project.
+ * @property {'image' | 'video'} type - The type of media (image or video).
+ * @property {string} url - The URL of the media.
+ */
 export interface MediaItem {
   type: 'image' | 'video'
   url: string
 }
 
+/**
+ * Props for the ProjectsSection component.
+ * @property {Project[]} projects - An array of Project objects to display.
+ */
 interface ProjectsSectionProps {
   projects: Project[]
 }
 
+/**
+ * Renders a section displaying a grid of project cards.
+ * @param {ProjectsSectionProps} props - The component props.
+ * @returns {JSX.Element} The ProjectsSection component.
+ */
 export default function ProjectsSection({ projects }: ProjectsSectionProps) {
   
   return (

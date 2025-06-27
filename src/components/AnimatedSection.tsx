@@ -7,6 +7,14 @@ interface AnimatedSectionProps {
   className?: string
 }
 
+/**
+ * A component that animates its children into view when scrolled into the viewport.
+ * It uses Intersection Observer to detect when the section becomes visible.
+ * @param {Object} props - The component props.
+ * @param {React.ReactNode} props.children - The content to be animated.
+ * @param {string} [props.className=''] - Additional CSS classes to apply to the section.
+ * @returns {JSX.Element} The animated section component.
+ */
 export default function AnimatedSection({ children, className = '' }: AnimatedSectionProps) {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)

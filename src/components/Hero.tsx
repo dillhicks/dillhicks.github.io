@@ -4,6 +4,12 @@ import Image from 'next/image'
 import { TypeAnimation } from 'react-type-animation'
 import Link from 'next/link'
 
+/**
+ * Renders the Hero section of the website.
+ * This component displays a profile image, name, animated titles, a brief description,
+ * and navigation links to contact, resume, and photo gallery.
+ * @returns {JSX.Element} The Hero component.
+ */
 export default function Hero() {
   return (
     <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">

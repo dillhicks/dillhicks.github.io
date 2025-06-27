@@ -2,6 +2,17 @@
 
 import PublicationCard from './PublicationCard'
 
+/**
+ * Interface for a Publication object.
+ * @property {string} title - The title of the publication.
+ * @property {string} authors - The authors of the publication.
+ * @property {string} venue - The venue where the publication was presented or published.
+ * @property {string} year - The year of publication.
+ * @property {'conference' | 'thesis'} type - The type of publication (conference or thesis).
+ * @property {string} role - The role of the author in the publication.
+ * @property {string} imageUrl - The URL of the image associated with the publication.
+ * @property {string} [paperUrl] - Optional URL to the full paper.
+ */
 interface Publication {
   title: string
   authors: string
@@ -13,10 +24,20 @@ interface Publication {
   paperUrl?: string
 }
 
+/**
+ * Props for the PublicationsSection component.
+ * @property {Publication[]} publications - An array of Publication objects to display.
+ */
 interface PublicationsSectionProps {
   publications: Publication[]
 }
 
+/**
+ * Renders a section displaying a horizontally scrollable list of publication cards.
+ * It includes navigation buttons for scrolling.
+ * @param {PublicationsSectionProps} props - The component props.
+ * @returns {JSX.Element} The PublicationsSection component.
+ */
 export default function PublicationsSection({ publications }: PublicationsSectionProps) {
   return (
     <section id="publications" className="py-16 px-4 sm:px-6 lg:px-8 section-bg">
